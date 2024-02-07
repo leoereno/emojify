@@ -31,16 +31,24 @@ export async function emojifyWithRandom(text, selectedAmmount){
     //console.log(allEmojis);
 
     const emojis = wordsFromText.map(el => {
-        let emoji = allEmojis[getRandomNumber(0, allEmojis.length)].character;
-        return emoji;
+        const willHaveEmoji = getRandomNumber(0,2);
+        const numberOfEmojis = willHaveEmoji > 0 ? getRandomNumber(1,3) : 0;
+        
+        let emojis = '';
+        for(let i = 0; i < numberOfEmojis; i++){
+            emojis += allEmojis[getRandomNumber(0, allEmojis.length)].character;
+        }
+        return el + emojis;
+        //let emoji = allEmojis[getRandomNumber(0, allEmojis.length)].character;
+        //return emoji;
     });
-    //console.log("emojis table", emojis);
+    return emojis.join(' ');
+    // uncomment HERE
+    // let emojifiedText = "";
 
-    let emojifiedText = "";
-
-    wordsFromText.forEach((element, index) => {
-        emojifiedText += `${element} ${emojis[index] || ""}`
-    });
-    console.log(emojifiedText);
-    return emojifiedText;
+    // wordsFromText.forEach((element, index) => {
+    //     emojifiedText += `${element} ${emojis[index] || ""}`
+    // });
+    // console.log(emojifiedText);
+    // return emojifiedText;
 }
