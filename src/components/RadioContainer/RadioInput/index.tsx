@@ -1,6 +1,15 @@
 import React from "react";
+import { AmmountLabel } from "../../../types/AmmountLabel";
 
-export default function({label, changeAmmount, selectedAmmount}) {
+
+
+interface RadioInputProps {
+    label: AmmountLabel;
+    changeAmmount: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    selectedAmmount: AmmountLabel;
+}
+
+export default function RadioInput({label, changeAmmount, selectedAmmount}: RadioInputProps) {
     return (
         <div className='radio'>
             <label>

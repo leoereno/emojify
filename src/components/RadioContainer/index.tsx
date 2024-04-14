@@ -1,10 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import RadioInput from "./RadioInput";
+import { AmmountLabel } from "../../types/AmmountLabel";
 
-export default function RadioContainer({selectedAmmount, setSelectedAmmount}){
+interface RadioContainerProps {
+    selectedAmmount: AmmountLabel;
+    setSelectedAmmount: React.Dispatch<React.SetStateAction<string>>
 
-    const changeAmmount = (e) => {
+}
+
+export default function RadioContainer({selectedAmmount, setSelectedAmmount}: RadioContainerProps){
+
+    const changeAmmount = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelectedAmmount(e.target.value);
         console.log(selectedAmmount)
       }

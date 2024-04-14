@@ -1,4 +1,8 @@
-body{
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+/* body{
   background-color: #F5F6F8;
 }
 
@@ -102,4 +106,4 @@ body{
 .copied {
   color: rgb(39, 234, 39);
   font-size: 0.8em;
-}
+} */

@@ -1,13 +1,13 @@
-const api_key = process.env.REACT_APP_API_KEY;
+const api_key : string = process.env.REACT_APP_API_KEY as string; 
 const random_emoji_uri = `https://emoji-api.com/emojis?access_key=${api_key}`
 
-function getRandomNumber(min, max) {
+function getRandomNumber(min: number, max:number) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
   }
 
-export async function getEmoji(word) {
+export async function getEmoji(word: string) {
     const response = await fetch(`https://emoji-api.com/emojis?search=${word}&access_key=${api_key}`);
 
     if(response.ok){

@@ -1,13 +1,14 @@
 import { getEmoji, getAllEmojis } from "../api/api";
+import { AmmountLabel } from "../types/AmmountLabel";
 
-function getRandomNumber(min, max) {
+function getRandomNumber(min: number, max: number) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
     return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
   }
   
 
-export async function emojifyText(text) {
+export async function emojifyText(text: string) {
     const wordsFromText = text.split(' ');
     const emojis = await Promise.all(wordsFromText.map(async el => {
         let emoji = await getEmoji(el);
@@ -25,10 +26,9 @@ export async function emojifyText(text) {
     return emojifiedText;
 }
 
-export async function emojifyWithRandom(text, selectedAmmount){
+export async function emojifyWithRandom(text: string, selectedAmmount: AmmountLabel){
     const wordsFromText = text.split(' ');
     const allEmojis = await getAllEmojis();
-    //console.log(allEmojis);
 
     const emojis = wordsFromText.map(el => {
         const willHaveEmoji = getRandomNumber(0,2);
